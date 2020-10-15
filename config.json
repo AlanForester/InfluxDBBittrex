@@ -1,0 +1,20 @@
+{
+  "crawlers": [
+    {
+      "name":"bittrex",
+      "pairs": [
+        "USDT-ETH",
+        "USDT-BTC"
+      ]
+    }
+  ],
+  "writers": [
+    {
+      "name": "influxdb",
+      "params": {
+        "host": "http://influxdb:8086",
+        "period": "7s"
+      }
+    }
+  ]
+}

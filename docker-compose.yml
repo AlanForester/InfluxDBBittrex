@@ -1,0 +1,26 @@
+version: '3.0'
+
+networks:
+  app-net:
+    driver: bridge
+
+services:
+  influxdb:
+    image: bitnami/influxdb:latest
+    environment:
+      - INFLUXDB_HTTP_AUTH_ENABLED=false
+      - INFLUXDB_DB=crypto
+    networks:
+      - app-net
+    ports:
+      - 8086:8086
+  app:
+    image: golang:alpine
+    volumes:
+      - .:/go/src/app
+    working_dir: /go/src/app
+    command: go run main.go --crawler=bittrex
+    networks:
+      - app-net
+    links:
+      - influxdb

@@ -1,0 +1,9 @@
+# If you want to use your Docker host's database server use either
+# Host: "host.docker.internal"
+# or
+Driver: "mariadb"
+Host: "10.0.1.2"
+Port: 3306
+Username: "autopart"
+Password: "842655"
+Database: "autopart"
